@@ -117,7 +117,7 @@ export function shell(api) {
 
   const conn = new Client();
   conn.on('ready', () => {
-    conn.exec(`docker exec -it mongodb ${mongoConfig.version.split(".")[0] > 5 ? "mongosh" : "mongo" } ${dbName}`, {
+    conn.exec(`docker exec -it mongodb ${config.mongo.version.split(".")[0] > 5 ? "mongosh" : "mongo" } ${dbName}`, {
       pty: true
     }, (err, stream) => {
       if (err) {
