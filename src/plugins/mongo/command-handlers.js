@@ -161,7 +161,7 @@ export async function status(api) {
     output: mongoStatus
   } = await api.runSSHCommand(
     server,
-    `docker exec mongodb ${mongoConfig.version.split(".")[0] > 5 ? "mongosh" : "mongo" } --eval ${mongoCommand} --quiet`
+    `docker exec mongodb ${config.mongo.version.split(".")[0] > 5 ? "mongosh" : "mongo" } --eval ${mongoCommand} --quiet`
   );
 
   try {
